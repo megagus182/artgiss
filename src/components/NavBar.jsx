@@ -3,7 +3,7 @@
 export default function NavBar() {
 
 return(
-    <nav class="navbar navbar-expand-lg" style={{backgroundColor: "#e3f2fd"}}>
+    <nav class="navbar navbar-expand-lg" style={{backgroundColor: "#C0F7FF"}}>
     <div class="container-fluid">
       <a class="navbar-brand" href="www.google.com">ArtGiss</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
