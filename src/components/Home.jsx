@@ -1,6 +1,7 @@
-import a from "../images/ban2.jpg";
-import d from "../images/ban3.jpg";
-import f from "../images/ban4.jpg";
+import ban1 from "../images/ban1.jpg";
+import ban2 from "../images/ban2.jpg";
+import ban3 from "../images/ban3.jpg";
+import ban4 from "../images/ban4.jpg";
 import perfil from "../images/perfil.jpg";
 import {
   Paper,
@@ -81,21 +82,24 @@ export default function Home() {
   ];
   
   return (
-    <div className="hommie">
+    <div className="hommie" style={{marginBottom:"-30px"}} >
       <div
         id="carouselExampleFade"
         class="carousel slide carousel-fade"
         data-bs-ride="carousel"
       >
         <div class="carousel-inner" style={{ height: "400px" }}>
-          <div class="carousel-item">
-            <img src={a} class="d-block w-100" alt="..." />
+          <div >
+            <img src={ban1} class="d-block w-100" alt="..." />
           </div>
-          <div class="carousel-item">
-            <img src={f} class="d-block w-100" alt="..." />
+          <div >
+            <img src={ban2} class="d-block w-100" alt="..." />
           </div>
-          <div class="carousel-item">
-            <img src={d} class="d-block w-100" alt="..." />
+          <div >
+            <img src={ban3} class="d-block w-100" alt="..." />
+          </div>
+          <div >
+            <img src={ban4} class="d-block w-100" alt="..." />
           </div>
         </div>
         <button
