@@ -11,16 +11,20 @@ import {
   ImageListItem,
   Button,
 } from "@mui/material/";
-import ang from "../images/ang.jpg";
+import meraki from "../images/meraki.jpg";
 import cats from "../images/cats.jpg";
-import dieta from "../images/dieta.jpg";
-import gotica from "../images/gotica.jpg";
+import cute from "../images/cuteflower.jpg";
+import sweetGame from "../images/sweetgame.jpg";
 import lovemusic from "../images/lovemusic.jpg";
-import mix from "../images/mix.jpg";
-import rat from "../images/rat.jpg";
+import yana from "../images/yana.jpg";
+import lilit from "../images/lilit.jpg";
 import tape from "../images/tape.jpg";
+import comida from "../images/comida.jpg";
 import "./Home.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Carousel from "react-material-ui-carousel";
+import Item from "./Item";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const theme = createTheme({
@@ -33,32 +37,48 @@ export default function Home() {
         darker: "#053e85",
       },
       rosita: {
-        main: "#b01db3",
+        main: "#9575cd",
         contrastText: "#fff",
       },
     },
   });
+// Imagenes del Banner
+  const itemBanner = [
+    {
+      img: ban1,
+      title: "Luar 💀🌌🌑💖",
+    },
+    {
+      img: ban2,
+      title: "Color Love 💖🏳️‍🌈 💻🖊",
+    },
+    {
+      img: ban3,
+      title: "Pacman Day 💚💙💜🟡💻🖊",
+    },
+    {
+      img: ban4,
+      title: "AmistadXSiempre 💻🖍💀",
+    },
+  ];
 
+  //Imagenes de Galeria Home
   const itemData = [
+    {
+      img: meraki,
+      title: "meraki",
+    },
     {
       img: cats,
       title: "cats",
-      rows: 2,
-      cols: 2,
     },
     {
-      img: ang,
-      title: "angel",
+      img: cute,
+      title: "cuteFlower",
     },
     {
-      img: dieta,
-      title: "dieta",
-    },
-    {
-      img: gotica,
-      title: "gotica",
-      rows: 2,
-      cols: 2,
+      img: sweetGame,
+      title: "sweetGame",
     },
     {
       img: lovemusic,
@@ -66,62 +86,40 @@ export default function Home() {
       cols: 2,
     },
     {
-      img: mix,
-      title: "mix",
-      rows: 2,
-      cols: 2,
+      img: yana,
+      title: "yana",
     },
     {
-      img: rat,
-      title: "rat",
+      img: lilit,
+      title: "lilit",
     },
     {
       img: tape,
       title: "tape",
     },
+    {
+      img: comida,
+      title: "comidaRica",
+    },
   ];
-  
+
   return (
-    <div className="hommie" style={{marginBottom:"-30px"}} >
-      <div
-        id="carouselExampleFade"
-        class="carousel slide carousel-fade"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner" style={{ height: "400px" }}>
-          <div >
-            <img src={ban1} class="d-block w-100" alt="..." />
-          </div>
-          <div >
-            <img src={ban2} class="d-block w-100" alt="..." />
-          </div>
-          <div >
-            <img src={ban3} class="d-block w-100" alt="..." />
-          </div>
-          <div >
-            <img src={ban4} class="d-block w-100" alt="..." />
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      <Paper sx={{ backgroundColor: "#C0F7FF" }} elevation={5}>
+    <div className="hommie" style={{ padding: "1px" }}>
+      {/* CAROUSEL */}
+      <Box className="boxBanner" marginBottom={"30px"}>
+        <Paper height={400} className="paperBan" elevation={3}>
+          <Carousel className="carusel" indicators={false} animation={"slide"}>
+            {itemBanner.map((item) => (
+              <Link to={`/detail/${item.id}`} key={item.id}>
+                <Item key={item.id} item={item.img} title={item.title} />
+              </Link>
+            ))}
+          </Carousel>
+        </Paper>
+      </Box>
+{/* CAROUSEL */}
+{/* Sobre Mi Home */}
+      <Paper sx={{ backgroundColor: "#a2d8ff", margin: "30px", borderRadius: "20px" }} elevation={5}>
         <Box
           sx={{
             display: "flex",
@@ -131,15 +129,21 @@ export default function Home() {
             height: "400px",
           }}
         >
+          {/* Descripcion Sobre Mi */}
           <Box
             width={"50%"}
             padding={"10px"}
             display={"flex"}
             flexDirection={"column"}
             textAlign={"center"}
-            justifyContent={"center"}
+            justifyContent={"space-between"}
           >
-            <Typography variant="h2" fontWeight="bolder" color="#ed82ff">
+            <Typography
+              variant="h2"
+              className="nombreGiss"
+              fontWeight="bolder"
+              color="#648dff"
+            >
               Claudia Gissel
             </Typography>
             <Typography variant="h3">🖌️🎨</Typography>
@@ -149,31 +153,38 @@ export default function Home() {
             </Typography>
             <Typography variant="h6">con un toque lindo y bizarro</Typography>
           </Box>
+          {/* Imagen Perfil */}
           <Box
             width={"50%"}
             display={"flex"}
             justifyContent={"flex-end"}
             alignItems={"flex-end"}
           >
-            <img width={"auto"} height={"400px"} src={perfil} alt="..." />
+            <img width={"auto"} height={"400px"} className="imgPerfil" src={perfil} alt="..." />
           </Box>
         </Box>
       </Paper>
-
+{/* Galeria Home */}
       <Paper
         sx={{
-          backgroundColor: "#FFB7FD",
+          backgroundColor: "#fce4ec",
           margin: "30px",
           padding: "20px",
           textAlign: "center",
+          borderRadius: "20px",
         }}
         elevation={5}
       >
+        <Typography variant="h2" color={"#9575cd"}>Un poco de mi galeria</Typography>
         <ImageList sx={{ margin: 3 }} variant="woven" cols={3} gap={13}>
           {itemData.map((item) => (
             <ImageListItem key={item.img}>
               <img
-                style={{ borderRadius: 10 }}
+                style={{
+                  borderRadius: 10,
+                  border: "solid",
+                  borderWidth: "thin",
+                }}
                 src={`${item.img}?w=161&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
@@ -182,6 +193,7 @@ export default function Home() {
             </ImageListItem>
           ))}
         </ImageList>
+        {/* Boton para ver mas */}
         <ThemeProvider theme={theme}>
           <Button variant="contained" color="rosita">
             Ver mas. . .

@@ -48,6 +48,7 @@ export default function Formulario() {
       <Typography
         textAlign={"center"}
         variant="h2"
+        paddingTop={"30px"}
       >
         Contactame!
       </Typography>
@@ -168,7 +169,7 @@ export default function Formulario() {
                 )}
                 <br></br>
                 {!isEmailError && !isNameError && !isMessageError ? (
-                  <Button type="submit">Enviar</Button>
+                  <Button variant="contained" type="submit">Enviar</Button>
                 ) : null}
               </FormGroup >
             </form>
