@@ -1,0 +1,43 @@
+.wrapper{
+	font-family:sans-serif;
+	width: 100%;
+	margin: 0 auto;
+	position:relative;
+	}
+	.imgHome{
+	opacity: 1;
+	display: block;
+	width:100%;
+	height: auto;
+	transition: .5s ease;
+	}
+	.content{
+	position: absolute;
+	top:45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-transform: uppercase;
+	font-size: 30px;
+	color:rgb(0, 8, 150);
+	white-space: nowrap;
+	overflow: hidden
+	}
+	.content a{
+	font-size: 15px;
+	display: block;
+	color:rgb(255, 255, 255);
+	background-color: #9575cd;
+	text-align: center;
+	padding: 4px;
+	cursor: pointer
+	}
+	.overlay{
+	opacity: 0
+	}
+	.wrapper:hover img{
+	opacity: .3
+	}
+	.wrapper:hover .overlay{
+	opacity: 1
+	}

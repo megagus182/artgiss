@@ -42,7 +42,7 @@ export default function Home() {
       },
     },
   });
-// Imagenes del Banner
+  // Imagenes del Banner
   const itemBanner = [
     {
       img: ban1,
@@ -104,7 +104,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="hommie" style={{ padding: "1px" }}>
+    <div className="hommie" >
       {/* CAROUSEL */}
       <Box className="boxBanner" marginBottom={"30px"}>
         <Paper height={400} className="paperBan" elevation={3}>
@@ -117,9 +117,16 @@ export default function Home() {
           </Carousel>
         </Paper>
       </Box>
-{/* CAROUSEL */}
-{/* Sobre Mi Home */}
-      <Paper sx={{ backgroundColor: "#a2d8ff", margin: "30px", borderRadius: "20px" }} elevation={5}>
+      {/* CAROUSEL */}
+      {/* Sobre Mi Home */}
+      <Paper
+        sx={{
+          backgroundColor: "#a2d8ff",
+          margin: "30px",
+          borderRadius: "20px",
+        }}
+        elevation={5}
+      >
         <Box
           sx={{
             display: "flex",
@@ -146,12 +153,28 @@ export default function Home() {
             >
               Claudia Gissel
             </Typography>
-            <Typography variant="h3">🖌️🎨</Typography>
+            <Typography variant="h4">🖌️🎨</Typography>
             <Typography variant="h6">
-              Soy apasionada por el arte, me caracterizo por realizar mis
-              propias illustraciones
+              Disfruto mucho crear ilustraciones
             </Typography>
-            <Typography variant="h6">con un toque lindo y bizarro</Typography>
+            <Typography variant="h6">
+              basadas en el arte surrealista.
+            </Typography>
+            <Typography variant="h6">
+              Dame un lapiz, pluma o tableta e
+            </Typography>
+            <Typography variant="h6">ilustrare tus ideas</Typography>
+            <br></br>
+            <Typography variant="h6">
+              Mi principal meta como diseñadora es
+            </Typography>
+            <Typography variant="h6">
+              transmitir mensajes creativos e ideas unicas
+            </Typography>
+            <Typography variant="h6">
+              mezclando diferentes colores, figuras, tecnicas
+            </Typography>
+            <Typography variant="h6">y materiales</Typography>
           </Box>
           {/* Imagen Perfil */}
           <Box
@@ -160,11 +183,17 @@ export default function Home() {
             justifyContent={"flex-end"}
             alignItems={"flex-end"}
           >
-            <img width={"auto"} height={"400px"} className="imgPerfil" src={perfil} alt="..." />
+            <img
+              width={"auto"}
+              height={"400px"}
+              className="imgPerfil"
+              src={perfil}
+              alt="..."
+            />
           </Box>
         </Box>
       </Paper>
-{/* Galeria Home */}
+      {/* Galeria Home */}
       <Paper
         sx={{
           backgroundColor: "#fce4ec",
@@ -175,11 +204,15 @@ export default function Home() {
         }}
         elevation={5}
       >
-        <Typography variant="h2" color={"#9575cd"}>Un poco de mi galeria</Typography>
-        <ImageList sx={{ margin: 3 }} variant="woven" cols={3} gap={13}>
+        <Typography variant="h2" color={"#9575cd"}>
+          Un poco de mi galeria
+        </Typography>
+        <ImageList sx={{ margin: 3 }} variant="quilted" cols={3} gap={13}>
           {itemData.map((item) => (
             <ImageListItem key={item.img}>
+              <div class="wrapper">
               <img
+              className="imgHome"
                 style={{
                   borderRadius: 10,
                   border: "solid",
@@ -190,14 +223,22 @@ export default function Home() {
                 alt={item.title}
                 loading="lazy"
               />
+                <div class="overlay">
+                  <div class="content">
+                    {item.title} <Link to={`/galeria`}>mas ..</Link>
+                  </div>
+                </div>
+              </div>
             </ImageListItem>
           ))}
         </ImageList>
         {/* Boton para ver mas */}
         <ThemeProvider theme={theme}>
-          <Button variant="contained" color="rosita">
-            Ver mas. . .
-          </Button>
+          <Link to={`/galeria`}>
+            <Button variant="contained" color="rosita">
+              Ver mas. . .
+            </Button>
+          </Link>
         </ThemeProvider>
       </Paper>
     </div>

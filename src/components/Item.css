@@ -21,3 +21,7 @@
   overflow: hidden;
   object-position: top;
 }
+
+a{
+  text-decoration: none;
+}

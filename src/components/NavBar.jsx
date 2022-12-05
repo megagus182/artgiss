@@ -20,14 +20,17 @@ return(
           <li class="nav-item">
             <a class="nav-link" href="/galeria">Galeria</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactame">Contacto</a>
+          </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="www.google.com" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Algo mas
+            <a class="nav-link dropdown-toggle" href="mis_redes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mis Redes Sociales
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/contactame">Contactame</a></li>
-              <li><a class="dropdown-item" href="www.google.com">Another action</a></li>
-              <li><a class="dropdown-item" href="www.google.com">Something else here</a></li>
+              <li><a class="dropdown-item" href="https://www.facebook.com/Art.giss">Facebook</a></li>
+              <li><a class="dropdown-item" href="https://www.instagram.com/art.giss.x3/">Instagram</a></li>
+              <li><a class="dropdown-item" href="https://www.tiktok.com/@gissx3">TikTok</a></li>
             </ul>
           </li>
         </ul>
