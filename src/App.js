@@ -10,11 +10,11 @@ function App() {
   return (
     <BrowserRouter>
         <Route path="/" ><NavBar /></Route>
-        <Route exact path="/" ><Home /></Route>
-        <Route exact path="/"><Formulario /></Route>
-        <Route exact path="/galeria" ><Galeria /></Route>
-        <Route exact path="/sobreMi" ><SobreMi /></Route>
-        <Route exact path="/contactame" ><Contactame /></Route>
+        <Route path="/" ><Home /></Route>
+        <Route path="/"><Formulario /></Route>
+        <Route path="/galeria" ><Galeria /></Route>
+        <Route path="/sobreMi" ><SobreMi /></Route>
+        <Route path="/contactame" ><Contactame /></Route>
     </BrowserRouter>
   )
 }
