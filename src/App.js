@@ -12,7 +12,7 @@ function App() {
       <Route path="/"><NavBar /></Route>
       <Route exact path="/"><Home /></Route>
       <Route exact path="/"><Formulario /></Route>
-      <Route path="/galeria"><Galeria /></Route>
+      <Route path={"/galeria"}><Galeria /></Route>
       <Route path="/sobreMi"><SobreMi /></Route>
       <Route path="/contactame"><Contactame /></Route>
     </BrowserRouter>
