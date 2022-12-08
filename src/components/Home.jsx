@@ -11,14 +11,14 @@ import {
   ImageListItem,
   Button,
 } from "@mui/material/";
-import meraki from "../images/meraki.jpg";
+import amarte from "../images/amarte.jpg";
 import cats from "../images/cats.jpg";
-import cute from "../images/cuteflower.jpg";
+import lola from "../images/lola.jpg";
 import sweetGame from "../images/sweetgame.jpg";
-import lovemusic from "../images/lovemusic.jpg";
+import magic from "../images/Magic.jpg";
 import yana from "../images/yana.jpg";
 import lilit from "../images/lilit.jpg";
-import tape from "../images/tape.jpg";
+import noodles from "../images/noodles.jpg";
 import comida from "../images/comida.jpg";
 import "./Home.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -65,41 +65,41 @@ export default function Home() {
   //Imagenes de Galeria Home
   const itemData = [
     {
-      img: meraki,
-      title: "meraki",
+      img: amarte,
+      title: "Amarte es arte",
     },
     {
       img: cats,
-      title: "cats",
+      title: "Un mismo corazón",
     },
     {
-      img: cute,
-      title: "cuteFlower",
+      img: lola,
+      title: "lola",
     },
     {
       img: sweetGame,
-      title: "sweetGame",
+      title: "Sweet Game",
     },
     {
-      img: lovemusic,
-      title: "lovemusic",
+      img: magic,
+      title: "Magic",
       cols: 2,
     },
     {
       img: yana,
-      title: "yana",
+      title: "Yana",
     },
     {
       img: lilit,
-      title: "lilit",
+      title: "Lilit",
     },
     {
-      img: tape,
-      title: "tape",
+      img: noodles,
+      title: "Noodles",
     },
     {
       img: comida,
-      title: "comidaRica",
+      title: "Desayuno Inteligente",
     },
   ];
   return (

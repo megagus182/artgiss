@@ -68,7 +68,7 @@ import zonatenue from "../images/ZonaTenue.jpg";
 export const itemData = [
     {
         img: amarte,
-        title: "Amarte",
+        title: "Amarte es arte",
     },
     {
         img: amistadxsiempre,
@@ -104,7 +104,7 @@ export const itemData = [
     },
     {
         img: cats,
-        title: "Cats",
+        title: "Un mismo corazón",
     },
     {
         img: chicacool,
