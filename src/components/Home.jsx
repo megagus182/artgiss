@@ -102,9 +102,9 @@ export default function Home() {
       title: "comidaRica",
     },
   ];
-
   return (
-    <div className="hommie" >
+    <div className="hommie" style={{paddingBottom:"1px"}} >
+     
       {/* CAROUSEL */}
       <Box className="boxBanner" marginBottom={"30px"}>
         <Paper height={400} className="paperBan" elevation={3}>

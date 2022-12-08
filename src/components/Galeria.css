@@ -41,3 +41,14 @@
 	.wrapper:hover .overlay{
 	opacity: 1
 	}
+
+	.card{
+		transform: translateY(100px);
+		opacity: 0;
+		transition: 150ms;
+	}
+
+	.card.show{
+		transform: translate(0);
+		opacity: 1;
+	}
