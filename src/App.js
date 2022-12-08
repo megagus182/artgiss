@@ -9,12 +9,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-        <Route  path="/" ><NavBar /></Route>
+        <Route path="/" ><NavBar /></Route>
         <Route exact path="/" ><Home /></Route>
         <Route exact path="/"><Formulario /></Route>
-        <Route exact path="/galeria" ><Galeria /></Route>
-        <Route exact path="/sobreMi" ><SobreMi /></Route>
-        <Route exact path="/contactame" ><Contactame /></Route>
+        <Route exact path="https://artgis.netlify.app/galeria" ><Galeria /></Route>
+        <Route exact path="https://artgis.netlify.app/sobreMi" ><SobreMi /></Route>
+        <Route exact path="https://artgis.netlify.app/contactame" ><Contactame /></Route>
     </BrowserRouter>
   )
 }
