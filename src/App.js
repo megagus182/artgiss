@@ -9,9 +9,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-        <Route path="/" ><NavBar /></Route>
-        <Route path="/" ><Home /></Route>
-        <Route path="/"><Formulario /></Route>
+        <Route exact path="/" ><NavBar /></Route>
+        <Route exact path="/" ><Home /></Route>
+        <Route exact path="/"><Formulario /></Route>
         <Route path="/galeria" ><Galeria /></Route>
         <Route path="/sobreMi" ><SobreMi /></Route>
         <Route path="/contactame" ><Contactame /></Route>
