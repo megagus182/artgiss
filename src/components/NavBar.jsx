@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 
@@ -18,7 +18,7 @@ return(
             <a class="nav-link" href="/sobreMi">Sobre mi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/galeria">Galeria</a>
+          <Link to={`/galeria`}>Galeria</Link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contactame">Contacto</a>
