@@ -12,16 +12,16 @@ return(
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <Link to={`/`}> <a class="nav-link active" aria-current="page" href="/">Home</a></Link>
           </li>
           <li class="nav-item">
           <Link to={`/sobremi`}> <a class="nav-link" href="/sobreMi">Sobre mi</a></Link>
           </li>
           <li class="nav-item">
-          <Link to={`/galeria`}>Galeria</Link>
+          <Link to={`/galeria`}><a class="nav-link" href="/galeria">Galeria</a></Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contactame"><Link to={`/contacto`}>Contacto</Link></a>
+          <Link to={`/contactame`}><a class="nav-link" href="/contactame">Contacto</a></Link>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="mis_redes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
