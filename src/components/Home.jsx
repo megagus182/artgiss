@@ -121,11 +121,11 @@ export default function Home() {
       </Box>
       : 
       <Box marginBottom={"30px"}>
-        <Paper height={155} elevation={3}>
-          <Carousel className="carusel" indicators={false} animation={"slide"}>
+        <Paper style={{height:"149px"}} elevation={3}>
+          <Carousel style={{height:"149px"}} indicators={false} animation={"slide"}>
             {itemBanner.map((item) => (
               <Link to={`/detail/${item.id}`} key={item.id}>
-                <Item key={item.id} item={item.img} title={item.title} />
+                <Item  key={item.id} item={item.img} title={item.title} />
               </Link>
             ))}
           </Carousel>
@@ -351,8 +351,8 @@ export default function Home() {
                 loading="lazy"
               />
                 <div class="overlay">
-                  <div class="content">
-                    {item.title} <Link to={`/galeria`}>mas ..</Link>
+                  <div class="contentCel">
+                    {item.title} <Link to={`/galeria`}><Button variant="contained">mas..</Button></Link>
                   </div>
                 </div>
               </div>

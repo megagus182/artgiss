@@ -27,7 +27,7 @@ export default function Item({ item, title }) {
     <img
       className="imagenBannerCel"
       width="100%"
-      height={"auto"}
+      height="149px"
       src={item}
       alt="notFound"
     />
