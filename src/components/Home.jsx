@@ -25,8 +25,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Carousel from "react-material-ui-carousel";
 import Item from "./Item";
 import { Link } from "react-router-dom";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Home() {
+  const celular = useMediaQuery('(min-width:450px)');
   const theme = createTheme({
     status: {
       danger: "#e53e3e",
@@ -104,8 +106,8 @@ export default function Home() {
   ];
   return (
     <div className="hommie" style={{paddingBottom:"1px"}} >
-     
       {/* CAROUSEL */}
+     {celular ?
       <Box className="boxBanner" marginBottom={"30px"}>
         <Paper height={400} className="paperBan" elevation={3}>
           <Carousel className="carusel" indicators={false} animation={"slide"}>
@@ -117,8 +119,22 @@ export default function Home() {
           </Carousel>
         </Paper>
       </Box>
+      : 
+      <Box marginBottom={"30px"}>
+        <Paper height={155} elevation={3}>
+          <Carousel className="carusel" indicators={false} animation={"slide"}>
+            {itemBanner.map((item) => (
+              <Link to={`/detail/${item.id}`} key={item.id}>
+                <Item key={item.id} item={item.img} title={item.title} />
+              </Link>
+            ))}
+          </Carousel>
+        </Paper>
+      </Box> 
+            }
       {/* CAROUSEL */}
       {/* Sobre Mi Home */}
+      {celular ?
       <Paper
         sx={{
           backgroundColor: "#a2d8ff",
@@ -133,10 +149,11 @@ export default function Home() {
             flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
-            height: "400px",
+            height: "100%",
           }}
         >
           {/* Descripcion Sobre Mi */}
+          
           <Box
             width={"50%"}
             padding={"10px"}
@@ -145,7 +162,7 @@ export default function Home() {
             textAlign={"center"}
             justifyContent={"space-between"}
           >
-            <Typography
+             <Typography
               variant="h2"
               className="nombreGiss"
               fontWeight="bolder"
@@ -175,7 +192,7 @@ export default function Home() {
               mezclando diferentes colores, figuras, tecnicas
             </Typography>
             <Typography variant="h6">y materiales</Typography>
-          </Box>
+          </Box> 
           {/* Imagen Perfil */}
           <Box
             width={"50%"}
@@ -184,16 +201,78 @@ export default function Home() {
             alignItems={"flex-end"}
           >
             <img
-              width={"auto"}
-              height={"400px"}
+              display={"contents"}
+              height={"100%"}
               className="imgPerfil"
               src={perfil}
               alt="..."
             />
           </Box>
         </Box>
+        </Paper>
+          :
+          <Paper
+        sx={{
+          backgroundColor: "#a2d8ff",
+          margin: "10px",
+          borderRadius: "20px",
+        }}
+        elevation={5}
+      >
+          <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            flexDirection: "column-reverse"
+          }}
+        >
+          <Box
+          width={"100%"}
+          padding={"10px"}
+          display={"flex"}
+          flexDirection={"column"}
+          textAlign={"center"}
+          justifyContent={"space-between"}
+        >
+           <Typography
+            variant="h4"
+            className="nombreGiss"
+            fontWeight="bolder"
+            color="#648dff"
+          >
+            Claudia Gissel 🖌️🎨
+          </Typography>
+          <Typography variant="h6">
+            Disfruto mucho crear ilustraciones basadas en el arte surrealista. Dame un lapiz, pluma o tableta e ilustrare tus ideas
+          </Typography>
+          <br></br>
+          <Typography variant="h6">
+            Mi principal meta como diseñadora es transmitir mensajes creativos e ideas unicas mezclando diferentes colores, figuras, tecnicas y materiales
+          </Typography>
+        </Box> 
+          {/* Imagen Perfil */}
+          <Box
+            width={"100%"}
+            display={"flex"}
+            justifyContent={"flex-end"}
+            alignItems={"flex-end"}
+          >
+            <img
+              display={"contents"}
+              width={"100%"}
+              className="imgPerfilCel"
+              src={perfil}
+              alt="..."
+            />
+          </Box>
+        </Box>
       </Paper>
+           }
       {/* Galeria Home */}
+      {celular ?
       <Paper
         sx={{
           backgroundColor: "#fce4ec",
@@ -241,6 +320,55 @@ export default function Home() {
           </Link>
         </ThemeProvider>
       </Paper>
+       : 
+       <Paper
+        sx={{
+          backgroundColor: "#fce4ec",
+          margin: "10px",
+          padding: "10px",
+          textAlign: "center",
+          borderRadius: "20px",
+        }}
+        elevation={5}
+      >
+        <Typography variant="h4" color={"#9575cd"}>
+          Un poco de mi galeria
+        </Typography>
+        <ImageList sx={{ margin: 1 }} variant="quilted" cols={2} gap={7}>
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <div class="wrapper">
+              <img
+              className="imgHome"
+                style={{
+                  borderRadius: 10,
+                  border: "solid",
+                  borderWidth: "thin",
+                }}
+                src={`${item.img}?w=161&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+              />
+                <div class="overlay">
+                  <div class="content">
+                    {item.title} <Link to={`/galeria`}>mas ..</Link>
+                  </div>
+                </div>
+              </div>
+            </ImageListItem>
+          ))}
+        </ImageList>
+        {/* Boton para ver mas */}
+        <ThemeProvider theme={theme}>
+          <Link to={`/galeria`}>
+            <Button variant="contained" color="rosita">
+              Ver mas. . .
+            </Button>
+          </Link>
+        </ThemeProvider>
+      </Paper>
+}
     </div>
   );
 }

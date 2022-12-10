@@ -49,6 +49,13 @@
   .imgPerfil{
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 20px;
+	width:-webkit-fill-available;
+  }
+
+  .imgPerfilCel{
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	height:-webkit-fill-available;
   }
 
   .wrapper{

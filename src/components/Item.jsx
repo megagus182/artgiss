@@ -1,10 +1,14 @@
 import React from "react";
-import { Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import "./Item.css";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Item({ item, title }) {
+  const celular = useMediaQuery('(min-width:450px)');
   return (
-    <Paper className="paperBanner">
+    <Box>
+    {celular ? 
+      <Paper className="paperBanner">
       <p className="nameBanner">{title}</p>
 
         <img
@@ -16,5 +20,20 @@ export default function Item({ item, title }) {
         />
 
     </Paper>
+  :
+  <Paper className="paperBannerCel">
+  <p className="nameBannerCel">{title}</p>
+
+    <img
+      className="imagenBannerCel"
+      width="100%"
+      height={"auto"}
+      src={item}
+      alt="notFound"
+    />
+
+</Paper>
+}
+</Box>
   );
 }

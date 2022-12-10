@@ -4,6 +4,11 @@
   height: 400px;
 }
 
+.paperBannerCel {
+  position: relative;
+  width: 100%;
+}
+
 .nameBanner {
   position: absolute;
   font-size: 3rem;
@@ -13,10 +18,27 @@
   text-shadow: 0px 3px 18px rgba(0, 0, 0, 0.749);
 }
 
+.nameBannerCel {
+  position: absolute;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  top: 10px;
+  left: 25px;
+  text-shadow: 0px 3px 18px rgba(0, 0, 0, 0.749);
+}
+
 .imagenBanner {
   inset: 0px;
   width: 100%;
   height: 400px;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: top;
+}
+
+.imagenBannerCel {
+  inset: 0px;
+  width: 100%;
   object-fit: cover;
   overflow: hidden;
   object-position: top;

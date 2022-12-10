@@ -79,9 +79,9 @@ export default function SobreMi(){
             />
           </Box>
         </Box>
-        <Box margin={"20px"} textAlign={"center"}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ncBsTWav_I0" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>      
-        </Box>
+        {/* <Box margin={"20px"} textAlign={"center"}>
+        <iframe title="algo" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FArt.giss%2Fvideos%2F324476185117829%2F&show_text=false&width=560&t=0" width="560" height="314" style={{border:"none", overflow:"hidden"}} frameborder="0" allowfullscreen="true" allow="autoplay clipboard-write encrypted-media picture-in-picture web-share" allowFullScreen="true"></iframe>
+        </Box> */}
         </Paper>
         </div>
     )
