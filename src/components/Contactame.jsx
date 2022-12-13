@@ -74,7 +74,7 @@ export default function Contactame() {
       </Box>
       </Paper>
       <Paper sx={{margin:"20px", backgroundColor: "rgb(162 216 255 / 50%)"}} elevation={5}>
-      <Typography textAlign={"center"} variant="h2" paddingTop={"30px"}>
+      <Typography textAlign={"center"} variant="h2" fontFamily="romantic" paddingTop={"30px"}>
         Contactame!
       </Typography>
       <Box width={"100%"} heigh={"100vh"} display={"flex"} jus className="Home">
@@ -205,22 +205,20 @@ export default function Contactame() {
       <Paper sx={{margin:"10px", backgroundColor: "rgb(252 228 236 / 50%)"}} elevation={10}>
       <Box display={"flex"} className="hommie" flexDirection={"column"} alignItems="center" textAlign={"center"} justifyContent={"center"}>
         <Box>
-        <Typography textAlign={"center"} paddingTop={"10px"} variant="h5">
+        <Typography textAlign={"center"}  paddingTop={"10px"} variant="h5">
             ¿Necesitas una Ilustración Diseño o logotipo?
           </Typography>
           <Typography textAlign={"center"} variant="h5" paddingTop={"10px"}>
             ¡Trabajemos juntos!
           </Typography>
         </Box>
-        <Box display={"contents"}>
-          <img src={call} width="80%" alt="llamame" />
-        </Box>
       </Box>
       <Box className="hommie" margin={0}>
       <Typography
         textAlign={"center"}
-        variant="h4"
+        variant="h3"
         paddingTop={"10px"}
+        fontFamily="romantic"
       >
         Contactame!
       </Typography>
@@ -236,8 +234,9 @@ export default function Contactame() {
           {/* ICONOS */}
           <Typography
         textAlign={"center"}
-        variant="h5"
+        variant="h4"
         paddingTop={"10px"}
+        fontFamily="romantic"
       >
         Sigueme en mis redes sociales!
       </Typography>

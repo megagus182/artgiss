@@ -112,9 +112,7 @@ export default function Home() {
         <Paper height={400} className="paperBan" elevation={3}>
           <Carousel className="carusel" indicators={false} animation={"slide"}>
             {itemBanner.map((item) => (
-              <Link to={`/detail/${item.id}`} key={item.id}>
                 <Item key={item.id} item={item.img} title={item.title} />
-              </Link>
             ))}
           </Carousel>
         </Paper>
@@ -124,9 +122,7 @@ export default function Home() {
         <Paper style={{height:"149px"}} elevation={3}>
           <Carousel style={{height:"149px"}} indicators={false} animation={"slide"}>
             {itemBanner.map((item) => (
-              <Link to={`/detail/${item.id}`} key={item.id}>
                 <Item  key={item.id} item={item.img} title={item.title} />
-              </Link>
             ))}
           </Carousel>
         </Paper>
@@ -163,10 +159,11 @@ export default function Home() {
             justifyContent={"space-between"}
           >
              <Typography
-              variant="h2"
+              variant="h3"
               className="nombreGiss"
               fontWeight="bolder"
               color="#648dff"
+              fontFamily={"star"}
             >
               Claudia Gissel
             </Typography>
@@ -242,6 +239,7 @@ export default function Home() {
             className="nombreGiss"
             fontWeight="bolder"
             color="#648dff"
+            fontFamily={"star"}
           >
             Claudia Gissel 🖌️🎨
           </Typography>
@@ -283,7 +281,7 @@ export default function Home() {
         }}
         elevation={5}
       >
-        <Typography variant="h2" color={"#9575cd"}>
+        <Typography variant="h2" fontFamily={"romantic"} color={"#9575cd"}>
           Un poco de mi galeria
         </Typography>
         <ImageList sx={{ margin: 3 }} variant="quilted" cols={3} gap={13}>
@@ -303,8 +301,8 @@ export default function Home() {
                 loading="lazy"
               />
                 <div class="overlay">
-                  <div class="content">
-                    {item.title} <Link to={`/galeria`}>mas ..</Link>
+                  <div  class="content">
+                   <Typography sx={{fontSize:"2rem"}} fontFamily={"milky"}>{item.title}</Typography>  <Link to={`/galeria`}>mas ..</Link>
                   </div>
                 </div>
               </div>
@@ -315,7 +313,7 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           <Link to={`/galeria`}>
             <Button variant="contained" color="rosita">
-              Ver mas. . .
+            <Typography fontFamily={"milky"}> Ver mas. . .</Typography>
             </Button>
           </Link>
         </ThemeProvider>
@@ -331,7 +329,7 @@ export default function Home() {
         }}
         elevation={5}
       >
-        <Typography variant="h4" color={"#9575cd"}>
+        <Typography variant="h4" fontFamily={"romantic"} color={"#9575cd"}>
           Un poco de mi galeria
         </Typography>
         <ImageList sx={{ margin: 1 }} variant="quilted" cols={2} gap={7}>
@@ -351,8 +349,8 @@ export default function Home() {
                 loading="lazy"
               />
                 <div class="overlay">
-                  <div class="contentCel">
-                    {item.title} <Link to={`/galeria`}><Button variant="contained">mas..</Button></Link>
+                <div  class="contentCel">
+                   <Typography sx={{fontSize:"1.5rem"}} fontFamily={"milky"}>{item.title}</Typography>  <Link to={`/galeria`}>mas ..</Link>
                   </div>
                 </div>
               </div>
@@ -362,7 +360,7 @@ export default function Home() {
         {/* Boton para ver mas */}
         <ThemeProvider theme={theme}>
           <Link to={`/galeria`}>
-            <Button variant="contained" color="rosita">
+            <Button variant="contained" fontFamily={"milky"} color="rosita">
               Ver mas. . .
             </Button>
           </Link>

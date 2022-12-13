@@ -111,3 +111,29 @@
 .wrapper:hover .overlay {
   opacity: 1;
 }
+
+@font-face {
+  font-family: "romantic";
+  src: url("../images/Romantic\ Knight.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "star";
+  src: url("../images/Starborn.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "milky";
+  src: url("../images/Milky\ Honey.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "happy";
+  src: url("../images/KGHAPPY.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+

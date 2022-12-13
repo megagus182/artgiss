@@ -21,7 +21,7 @@ export default function Galeria(){
         }}
         elevation={5}
       >
-        <Typography variant="h2" color={"#9575cd"}>
+        <Typography variant="h2" fontFamily={"romantic"} color={"#9575cd"}>
           Mis obras
         </Typography>
         <ImageList sx={{ margin: 3 }} variant="masonry" cols={2} gap={8}>
@@ -42,7 +42,7 @@ export default function Galeria(){
               />
                <div class="overlay">
                   <div class="content">
-                    {item.title} 
+                  <Typography sx={{fontSize:"2rem"}} fontFamily={"milky"}>{item.title}</Typography>
                   </div>
                 </div>
                 </div>
@@ -63,7 +63,7 @@ export default function Galeria(){
         }}
         elevation={5}
       >
-        <Typography variant="h2" color={"#9575cd"}>
+        <Typography variant="h2" fontFamily={"milky"} color={"#9575cd"}>
           Mis obras
         </Typography>
         <ImageList sx={{ margin: 2 }} variant="masonry" cols={1} gap={5}>
@@ -84,7 +84,7 @@ export default function Galeria(){
               />
                <div class="overlay">
                   <div class="content">
-                    {item.title} 
+                  <Typography sx={{fontSize:"2rem"}} fontFamily={"milky"}>{item.title}</Typography>
                   </div>
                 </div>
                 </div>

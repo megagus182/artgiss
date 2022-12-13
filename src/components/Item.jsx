@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import "./Item.css";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -9,7 +9,7 @@ export default function Item({ item, title }) {
     <Box>
     {celular ? 
       <Paper className="paperBanner">
-      <p className="nameBanner">{title}</p>
+      <Typography className="nameBanner" fontFamily={"happy"}>{title}</Typography>
 
         <img
           className="imagenBanner"
@@ -22,7 +22,7 @@ export default function Item({ item, title }) {
     </Paper>
   :
   <Paper className="paperBannerCel">
-  <p className="nameBannerCel">{title}</p>
+  <Typography className="nameBannerCel" fontFamily={"happy"} fontSize="3rem">{title}</Typography>
 
     <img
       className="imagenBannerCel"

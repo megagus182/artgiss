@@ -41,6 +41,7 @@ export default function SobreMi(){
               className="nombreGiss"
               fontWeight="bolder"
               color="#648dff"
+              fontFamily={"star"}
             >
               Claudia Gissel
             </Typography>
@@ -116,6 +117,7 @@ export default function SobreMi(){
             className="nombreGiss"
             fontWeight="bolder"
             color="#648dff"
+            fontFamily={"star"}
           >
             Claudia Gissel 🖌️🎨
           </Typography>

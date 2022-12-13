@@ -52,8 +52,9 @@ export default function Formulario() {
     <Box className="hommie" marginTop={0}>
     <Typography
       textAlign={"center"}
-      variant="h2"
+      variant="h1"
       paddingTop={"30px"}
+      fontFamily="romantic"
     >
       Contactame!
     </Typography>
@@ -65,7 +66,6 @@ export default function Formulario() {
         width={"50%"}
         marginLeft={"20px"}
         textAlign={"center"}
-        className="leftSideFromHome"
       >
         {/* ICONOS */}
         <Box
@@ -88,13 +88,13 @@ export default function Formulario() {
             
           </Box>
           <Box>
-            <Tooltip label="Go to my Instagram" aria-label="A tooltip">
+            <Tooltip label="Go to my Instagram" className="iconosa" aria-label="A tooltip">
               <a href="https://www.instagram.com/art.giss.x3/">
                 <img
                   height={"fit-content"}
                   width={"20%"}
                   src={insta}
-                  alt="linkedin"
+                  alt="instagram"
                 />
               </a>
             </Tooltip>
@@ -186,8 +186,9 @@ export default function Formulario() {
   <Box className="hommie" marginTop={0}>
       <Typography
         textAlign={"center"}
-        variant="h4"
+        variant="h3"
         paddingTop={"10px"}
+        fontFamily="romantic"
       >
         Contactame!
       </Typography>
@@ -198,13 +199,14 @@ export default function Formulario() {
           justifyContent={"center"}
           width={"100%"}
           textAlign={"center"}
-          className="leftSideFromHome"
+          className="iconos"
         >
           {/* ICONOS */}
           <Typography
         textAlign={"center"}
-        variant="h5"
+        variant="h4"
         paddingTop={"10px"}
+        fontFamily="romantic"
       >
         Sigueme en mis redes sociales!
       </Typography>
