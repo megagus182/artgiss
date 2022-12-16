@@ -9,7 +9,7 @@ export default function Item({ item, title }) {
     <Box>
     {celular ? 
       <Paper className="paperBanner">
-      <Typography className="nameBanner" fontFamily={"happy"}>{title}</Typography>
+      <Typography className="nameBanner" fontFamily={"happy"} sx={{fontSize:"3rem"}}>{title}</Typography>
 
         <img
           className="imagenBanner"
