@@ -64,8 +64,33 @@ import yana from "../images/yana.jpg";
 import yo from "../images/Yo.jpg";
 import zombiaa from "../images/Zombiaa.jpg";
 import zonatenue from "../images/ZonaTenue.jpg";
+import vibrando from "../images/Vibrando.jfif";
+import angeldepaz from "../images/AngelDePaz.jfif";
+import beso from "../images/Beso.jfif";
+import besogatuno from "../images/BesoGatuno.jfif";
+import crystalherat from "../images/CrystalHeart.jfif";
 
 export const itemData = [
+    {
+        img: vibrando,
+        title: "Vibrando",
+    },
+    {
+        img: angeldepaz,
+        title: "Angel de Paz",
+    },
+    {
+        img: beso,
+        title: "Beso",
+    },
+    {
+        img: besogatuno,
+        title: "Beso Gatuno",
+    },
+    {
+        img: crystalherat,
+        title: "Crystal Hearth",
+    },
     {
         img: amarte,
         title: "Amarte es arte",

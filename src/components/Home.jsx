@@ -15,10 +15,10 @@ import {
 } from "@mui/material";
 import amarte from "../images/amarte.jpg";
 import cats from "../images/cats.jpg";
-import lola from "../images/lola.jpg";
-import sweetGame from "../images/sweetgame.jpg";
-import magic from "../images/Magic.jpg";
-import yana from "../images/yana.jpg";
+import crystalheart from "../images/CrystalHeart.jfif"
+import AngelDePaz from "../images/AngelDePaz.jfif";
+import besogatuno from "../images/BesoGatuno.jfif";
+import nocherosa from "../images/NocheRosa.jpg";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -29,10 +29,10 @@ export default function Home() {
   const featuredArt = [
     { img: amarte, title: "Amarte es arte" },
     { img: cats, title: "Un mismo corazón" },
-    { img: lola, title: "lola" },
-    { img: sweetGame, title: "Sweet Game" },
-    { img: magic, title: "Magic" },
-    { img: yana, title: "Yana" },
+    { img: AngelDePaz, title: "Angel De Paz" },
+    { img: crystalheart, title: "Crystal Heart" },
+    { img: besogatuno, title: "Beso Gatuno" },
+    { img: nocherosa, title: "Noche Rosa" },
   ];
 
   return (
