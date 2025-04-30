@@ -72,10 +72,10 @@ export default function Home() {
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
           }}
         >
-          <Typography variant={celular ? "h2" : "h4"} fontWeight="bold">
+          <Typography variant={celular ? "h2" : "h5"} fontWeight="bold">
             Bienvenido al Portafolio de Claudia Gissel
           </Typography>
-          <Typography variant={celular ? "h5" : "subtitle1"}>
+          <Typography variant={celular ? "h5" : "subtitle2"}>
             Ilustración Surrealista y Diseño Creativo
           </Typography>
         </Box>
