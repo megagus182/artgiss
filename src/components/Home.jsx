@@ -1,8 +1,10 @@
-import ban1 from "../images/ban1.jpg";
-import ban2 from "../images/ban2.jpg";
-import ban3 from "../images/ban3.jpg";
-import ban4 from "../images/ban4.jpg";
+import "@fontsource/sora/400.css";
+import "@fontsource/sora/700.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/700.css";
+import React from "react";
 import perfil from "../images/perfil.jpg";
+import header from "../images/header.jpg";
 import {
   Paper,
   Box,
@@ -10,363 +12,242 @@ import {
   ImageList,
   ImageListItem,
   Button,
-} from "@mui/material/";
+} from "@mui/material";
 import amarte from "../images/amarte.jpg";
 import cats from "../images/cats.jpg";
 import lola from "../images/lola.jpg";
 import sweetGame from "../images/sweetgame.jpg";
 import magic from "../images/Magic.jpg";
 import yana from "../images/yana.jpg";
-import lilit from "../images/lilit.jpg";
-import noodles from "../images/noodles.jpg";
-import comida from "../images/comida.jpg";
 import "./Home.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Carousel from "react-material-ui-carousel";
-import Item from "./Item";
 import { Link } from "react-router-dom";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function Home() {
-  const celular = useMediaQuery('(min-width:450px)');
-  const theme = createTheme({
-    status: {
-      danger: "#e53e3e",
-    },
-    palette: {
-      primary: {
-        main: "#0971f1",
-        darker: "#053e85",
-      },
-      rosita: {
-        main: "#9575cd",
-        contrastText: "#fff",
-      },
-    },
-  });
-  // Imagenes del Banner
-  const itemBanner = [
-    {
-      img: ban1,
-      title: "Luar 💀🌌🌑💖",
-    },
-    {
-      img: ban2,
-      title: "Color Love 💖🏳️‍🌈 💻🖊",
-    },
-    {
-      img: ban3,
-      title: "Pacman Day 💚💙💜🟡💻🖊",
-    },
-    {
-      img: ban4,
-      title: "AmistadXSiempre 💻🖍💀",
-    },
+  const celular = useMediaQuery("(min-width:450px)");
+
+  const featuredArt = [
+    { img: amarte, title: "Amarte es arte" },
+    { img: cats, title: "Un mismo corazón" },
+    { img: lola, title: "lola" },
+    { img: sweetGame, title: "Sweet Game" },
+    { img: magic, title: "Magic" },
+    { img: yana, title: "Yana" },
   ];
 
-  //Imagenes de Galeria Home
-  const itemData = [
-    {
-      img: amarte,
-      title: "Amarte es arte",
-    },
-    {
-      img: cats,
-      title: "Un mismo corazón",
-    },
-    {
-      img: lola,
-      title: "lola",
-    },
-    {
-      img: sweetGame,
-      title: "Sweet Game",
-    },
-    {
-      img: magic,
-      title: "Magic",
-      cols: 2,
-    },
-    {
-      img: yana,
-      title: "Yana",
-    },
-    {
-      img: lilit,
-      title: "Lilit",
-    },
-    {
-      img: noodles,
-      title: "Noodles",
-    },
-    {
-      img: comida,
-      title: "Desayuno Inteligente",
-    },
-  ];
   return (
-    <div className="hommie" style={{paddingBottom:"1px"}} >
-      {/* CAROUSEL */}
-     {celular ?
-      <Box className="boxBanner" marginBottom={"30px"}>
-        <Paper height={400} className="paperBan" elevation={3}>
-          <Carousel className="carusel" indicators={false} animation={"slide"}>
-            {itemBanner.map((item) => (
-                <Item key={item.id} item={item.img} title={item.title} />
-            ))}
-          </Carousel>
-        </Paper>
-      </Box>
-      : 
-      <Box marginBottom={"30px"}>
-        <Paper style={{height:"149px"}} elevation={3}>
-          <Carousel style={{height:"149px"}} indicators={false} animation={"slide"}>
-            {itemBanner.map((item) => (
-                <Item  key={item.id} item={item.img} title={item.title} />
-            ))}
-          </Carousel>
-        </Paper>
-      </Box> 
-            }
-      {/* CAROUSEL */}
-      {/* Sobre Mi Home */}
-      {celular ?
-      <Paper
+    <div className="hommie">
+      {/* Encabezado */}
+      <Box
         sx={{
-          backgroundColor: "#a2d8ff",
-          margin: "30px",
-          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: celular ? "400px" : "200px",
+          overflow: "hidden",
+          borderRadius: "8px",
+          marginBottom: "30px",
         }}
-        elevation={5}
       >
+        <img
+          src={header}
+          alt="Imagen de encabezado del portafolio"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.8,
+          }}
+        />
         <Box
           sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            textAlign: "center",
+            color: "#fff",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
           }}
         >
-          {/* Descripcion Sobre Mi */}
-          
-          <Box
-            width={"50%"}
-            padding={"10px"}
-            display={"flex"}
-            flexDirection={"column"}
-            textAlign={"center"}
-            justifyContent={"space-between"}
-          >
-             <Typography
-              variant="h3"
-              className="nombreGiss"
-              fontWeight="bolder"
-              color="#648dff"
-              fontFamily={"star"}
-            >
-              Claudia Gissel
-            </Typography>
-            <Typography variant="h4">🖌️🎨</Typography>
-            <Typography variant="h6">
-              Disfruto mucho crear ilustraciones
-            </Typography>
-            <Typography variant="h6">
-              basadas en el arte surrealista.
-            </Typography>
-            <Typography variant="h6">
-              Dame un lapiz, pluma o tableta e
-            </Typography>
-            <Typography variant="h6">ilustrare tus ideas</Typography>
-            <br></br>
-            <Typography variant="h6">
-              Mi principal meta como diseñadora es
-            </Typography>
-            <Typography variant="h6">
-              transmitir mensajes creativos e ideas unicas
-            </Typography>
-            <Typography variant="h6">
-              mezclando diferentes colores, figuras, tecnicas
-            </Typography>
-            <Typography variant="h6">y materiales</Typography>
-          </Box> 
-          {/* Imagen Perfil */}
-          <Box
-            width={"50%"}
-            display={"flex"}
-            justifyContent={"flex-end"}
-            alignItems={"flex-end"}
-          >
-            <img
-              display={"contents"}
-              height={"100%"}
-              className="imgPerfil"
-              src={perfil}
-              alt="..."
-            />
-          </Box>
+          <Typography variant={celular ? "h2" : "h4"} fontWeight="bold">
+            Bienvenido al Portafolio de Claudia Gissel
+          </Typography>
+          <Typography variant={celular ? "h5" : "subtitle1"}>
+            Ilustración Surrealista y Diseño Creativo
+          </Typography>
         </Box>
-        </Paper>
-          :
-          <Paper
-        sx={{
-          backgroundColor: "#a2d8ff",
-          margin: "10px",
-          borderRadius: "20px",
-        }}
-        elevation={5}
-      >
-          <Box
+      </Box>
+
+      {/* Sobre mí */}
+      {celular ? (
+        <Paper
           sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            flexDirection: "column-reverse"
+            backgroundColor: "#f8f8f8",
+            maxWidth: "960px",
+            margin: "0 auto 30px auto",
+            borderRadius: "20px",
+            padding: "40px",
           }}
+          elevation={5}
         >
           <Box
-          width={"100%"}
-          padding={"10px"}
-          display={"flex"}
-          flexDirection={"column"}
-          textAlign={"center"}
-          justifyContent={"space-between"}
-        >
-           <Typography
-            variant="h4"
-            className="nombreGiss"
-            fontWeight="bolder"
-            color="#648dff"
-            fontFamily={"star"}
-          >
-            Claudia Gissel 🖌️🎨
-          </Typography>
-          <Typography variant="h6">
-            Disfruto mucho crear ilustraciones basadas en el arte surrealista. Dame un lapiz, pluma o tableta e ilustrare tus ideas
-          </Typography>
-          <br></br>
-          <Typography variant="h6">
-            Mi principal meta como diseñadora es transmitir mensajes creativos e ideas unicas mezclando diferentes colores, figuras, tecnicas y materiales
-          </Typography>
-        </Box> 
-          {/* Imagen Perfil */}
-          <Box
-            width={"100%"}
-            display={"flex"}
-            justifyContent={"flex-end"}
-            alignItems={"flex-end"}
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
             <img
-              display={"contents"}
-              width={"100%"}
-              className="imgPerfilCel"
               src={perfil}
-              alt="..."
+              alt="Perfil de Claudia"
+              style={{
+                width: "200px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "50%",
+                marginRight: "30px",
+              }}
             />
+            <Box sx={{ maxWidth: "500px" }}>
+              <Typography variant="h5" fontWeight="bold" gutterBottom>
+                Sobre mí
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Soy Claudia Gissel, ilustradora surrealista y diseñadora gráfica
+                con una pasión por convertir ideas en obras visuales
+                impactantes. Me especializo en ilustración digital, combinando
+                creatividad con técnica.
+              </Typography>
+              <Link to="/sobremi" style={{ textDecoration: "none" }}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  sx={{ mt: 2, fontWeight: "bold" }}
+                >
+                  Ver más
+                </Button>
+              </Link>
+            </Box>
           </Box>
+        </Paper>
+      ) : (
+        <Paper
+          sx={{
+            backgroundColor: "#f8f8f8",
+            margin: "10px auto 20px auto",
+            borderRadius: "15px",
+            padding: "20px",
+            textAlign: "center",
+            maxWidth: "90%",
+          }}
+          elevation={3}
+        >
+          <img
+            src={perfil}
+            alt="Perfil de Claudia"
+            style={{
+              width: "120px",
+              height: "120px",
+              objectFit: "cover",
+              borderRadius: "50%",
+              marginBottom: "15px",
+            }}
+          />
+          <Typography variant="h6" fontWeight="bold" gutterBottom>
+            Sobre mí
+          </Typography>
+          <Typography variant="body2" paragraph>
+            Soy Claudia Gissel, ilustradora surrealista y diseñadora gráfica con
+            una pasión por convertir ideas en obras visuales impactantes.
+          </Typography>
+          <Link to="/sobremi" style={{ textDecoration: "none" }}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              size="small"
+              sx={{ mt: 1, fontWeight: "bold" }}
+            >
+              Ver más
+            </Button>
+          </Link>
+        </Paper>
+      )}
+
+      {/* Galería */}
+      <Box sx={{ maxWidth: "960px", margin: "0 auto", padding: "20px" }}>
+        <Typography variant="h5" fontWeight="bold" gutterBottom>
+          Galería Destacada
+        </Typography>
+        <ImageList variant="masonry" cols={celular ? 3 : 2} gap={8}>
+          {featuredArt.map((item, index) => (
+            <ImageListItem key={index}>
+              <img
+                src={item.img}
+                alt={item.title}
+                loading="lazy"
+                style={{ borderRadius: "12px" }}
+              />
+              <Typography
+                variant="caption"
+                display="block"
+                textAlign="center"
+                mt={1}
+              >
+                {item.title}
+              </Typography>
+            </ImageListItem>
+          ))}
+        </ImageList>
+        <Box textAlign="center" mt={4}>
+          <Link to="/galeria" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              color="secondary"
+              sx={{ mt: 2, fontWeight: "bold" }}
+            >
+              Ver más obras
+            </Button>
+          </Link>
         </Box>
-      </Paper>
-           }
-      {/* Galeria Home */}
-      {celular ?
-      <Paper
+      </Box>
+
+      {/* Contacto */}
+      <Box
         sx={{
-          backgroundColor: "#fce4ec",
-          margin: "30px",
-          padding: "20px",
-          textAlign: "center",
-          borderRadius: "20px",
+          backgroundColor: "#f0f0f0",
+          padding: "40px 20px",
+          marginTop: "40px",
         }}
-        elevation={5}
       >
-        <Typography variant="h2" fontFamily={"romantic"} color={"#9575cd"}>
-          Un poco de mi galeria
+        <Typography variant="h5" textAlign="center" gutterBottom>
+          ¿Te interesa colaborar?
         </Typography>
-        <ImageList sx={{ margin: 3 }} variant="quilted" cols={3} gap={13}>
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
-              <div class="wrapper">
-              <img
-              className="imgHome"
-                style={{
-                  borderRadius: 10,
-                  border: "solid",
-                  borderWidth: "thin",
-                }}
-                src={`${item.img}?w=161&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-              />
-                <div class="overlay">
-                  <div  class="content">
-                   <Typography sx={{fontSize:"2rem"}} fontFamily={"milky"}>{item.title}</Typography>  <Link to={`/galeria`}>mas ..</Link>
-                  </div>
-                </div>
-              </div>
-            </ImageListItem>
-          ))}
-        </ImageList>
-        {/* Boton para ver mas */}
-        <ThemeProvider theme={theme}>
-          <Link to={`/galeria`}>
-            <Button variant="contained" color="rosita">
-            <Typography fontFamily={"milky"}> Ver mas. . .</Typography>
+        <Typography
+          variant="body1"
+          textAlign="center"
+          maxWidth="600px"
+          margin="0 auto"
+          mb={3}
+        >
+          Ponte en contacto para proyectos personalizados, ilustraciones únicas
+          o colaboraciones creativas.
+        </Typography>
+        <Box textAlign="center">
+          <Link to="/contacto" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              color="secondary"
+              sx={{ mt: 2, fontWeight: "bold" }}
+            >
+              Contactar
             </Button>
           </Link>
-        </ThemeProvider>
-      </Paper>
-       : 
-       <Paper
-        sx={{
-          backgroundColor: "#fce4ec",
-          margin: "10px",
-          padding: "10px",
-          textAlign: "center",
-          borderRadius: "20px",
-        }}
-        elevation={5}
-      >
-        <Typography variant="h4" fontFamily={"romantic"} color={"#9575cd"}>
-          Un poco de mi galeria
-        </Typography>
-        <ImageList sx={{ margin: 1 }} variant="quilted" cols={2} gap={7}>
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
-              <div class="wrapper">
-              <img
-              className="imgHome"
-                style={{
-                  borderRadius: 10,
-                  border: "solid",
-                  borderWidth: "thin",
-                }}
-                src={`${item.img}?w=161&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-              />
-                <div class="overlay">
-                <div  class="contentCel">
-                   <Typography sx={{fontSize:"1.5rem"}} fontFamily={"milky"}>{item.title}</Typography>  <Link to={`/galeria`}>mas ..</Link>
-                  </div>
-                </div>
-              </div>
-            </ImageListItem>
-          ))}
-        </ImageList>
-        {/* Boton para ver mas */}
-        <ThemeProvider theme={theme}>
-          <Link to={`/galeria`}>
-            <Button variant="contained" fontFamily={"milky"} color="rosita">
-              Ver mas. . .
-            </Button>
-          </Link>
-        </ThemeProvider>
-      </Paper>
-}
+        </Box>
+      </Box>
     </div>
   );
 }

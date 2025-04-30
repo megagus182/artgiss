@@ -10,349 +10,240 @@ import {
   FormGroup,
   FormHelperText,
   TextField,
-  Paper
+  Paper,
+  IconButton,
+  SvgIcon,
 } from "@mui/material/";
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import face from "../images/face.png";
-import tik from "../images/tik.png";
-import insta from "../images/insta.png";
-import call from "../images/llamame.png";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import "./Home.css";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { ReactComponent as TikTokSVG } from '../images/tiktok.svg';
+import { ReactComponent as WhatsAppSVG } from '../images/whatsapp.svg';
+
+function TikTokIcon(props) {
+  return <SvgIcon component={TikTokSVG} viewBox="0 0 25 25" {...props} />;
+}
+
+function WhatsAppIcon(props) {
+  return <SvgIcon component={WhatsAppSVG} viewBox="0 0 24 24" {...props} />;
+}
 
 export default function Contactame() {
-  const [input, setInput] = useState("");
-  const handleInputChange = (e) => setInput(e.target.value);
-  const [inputName, setInputName] = useState("");
-  const handleInputNameChange = (e) => setInputName(e.target.value);
-  const [inputMessage, setInputMessage] = useState("");
-  const handleInputMessageChange = (e) => setInputMessage(e.target.value);
-  const isEmailError = input === "";
-  const isNameError = inputName === "";
-  const isMessageError = inputMessage === "";
   const form = useRef();
   const celular = useMediaQuery('(min-width:450px)');
+  const [showAlert, setShowAlert] = useState(null);
+
+  // Estados para los valores de los campos
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Estados para controlar si el usuario ha interactuado con los campos
+  const [touchedName, setTouchedName] = useState(false);
+  const [touchedEmail, setTouchedEmail] = useState(false);
+  const [touchedMessage, setTouchedMessage] = useState(false);
+
+  // Estados para los errores de validación
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
+
+  const validateName = (value) => {
+      if (!touchedName) return "";
+      if (value.length < 10) {
+          return "El nombre debe tener al menos 10 caracteres.";
+      }
+      return "";
+  };
+
+  const validateEmail = (value) => {
+      if (!touchedEmail) return "";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          return "Por favor, introduce un correo electrónico válido.";
+      }
+      return "";
+  };
+
+  const validateMessage = (value) => {
+      if (!touchedMessage) return "";
+      if (value.length < 20) {
+          return "El mensaje debe tener al menos 20 caracteres.";
+      }
+      return "";
+  };
+
+  const handleNameChange = (e) => {
+      setName(e.target.value);
+      setNameError(validateName(e.target.value));
+  };
+
+  const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+      setEmailError(validateEmail(e.target.value));
+  };
+
+  const handleMessageChange = (e) => {
+      setMessage(e.target.value);
+      setMessageError(validateMessage(e.target.value));
+  };
+
+  const handleBlur = (field) => {
+      switch (field) {
+          case "name":
+              setTouchedName(true);
+              setNameError(validateName(name));
+              break;
+          case "email":
+              setTouchedEmail(true);
+              setEmailError(validateEmail(email));
+              break;
+          case "message":
+              setTouchedMessage(true);
+              setMessageError(validateMessage(message));
+              break;
+          default:
+              break;
+      }
+  };
 
   function sendEmail(e) {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_kgwu2uc",
-        "template_i0822lk",
-        form.current,
-        "UoL2za3bsCOGDob5k"
-      )
-      .then((res) => {
-        <Alert severity="success">
-          <AlertTitle>Mensaje Enviado</AlertTitle>Gracias por contactarme!!
-        </Alert>;
-      });
+      e.preventDefault();
+      setTouchedName(true);
+      setTouchedEmail(true);
+      setTouchedMessage(true);
+      setNameError(validateName(name));
+      setEmailError(validateEmail(email));
+      setMessageError(validateMessage(message));
+
+      if (!nameError && !emailError && !messageError && name && email && message) {
+          emailjs
+          .sendForm("service_kgwu2uc", "template_i0822lk", form.current, "xSRbX8a-Xu0ZzjQ5h")
+              .then((res) => {
+                  setShowAlert({ severity: "success", message: "¡Mensaje Enviado! Gracias por contactarme!!" });
+                  setName("");
+                  setEmail("");
+                  setMessage("");
+                  setTouchedName(false);
+                  setTouchedEmail(false);
+                  setTouchedMessage(false);
+              })
+              .catch((err) => {
+                  setShowAlert({ severity: "error", message: "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo." });
+              });
+      } else if (!name || !email || !message) {
+          setShowAlert({ severity: "warning", message: "Por favor, completa todos los campos requeridos." });
+      } else {
+          setShowAlert(null);
+      }
   }
 
   return (
-    <Box>
-    {celular ?
-    <Box className="hommie" marginTop={0} padding="20px">
-      
-      <Paper sx={{margin:"20px", padding:"20px", backgroundColor: "rgb(252 228 236 / 50%)",marginTop:0}} elevation={5}>
-      <Box display={"flex"} alignItems="center" textAlign={"center"} justifyContent={"center"}>
-        <Box>
-        <Typography textAlign={"center"} variant="h3">
-            ¿Necesitas una Ilustración
-          </Typography>
-          <Typography textAlign={"center"} variant="h3" paddingTop={"30px"}>
-            Diseño o logotipo?
-          </Typography>
-          <Typography textAlign={"center"} variant="h3" paddingTop={"30px"}>
-            ¡Trabajemos juntos!
-          </Typography>
-        </Box>
-        <Box display={"contents"}>
-          <img src={call} width="30%" alt="llamame" />
-        </Box>
+      <Box mt={0} padding={celular ? "30px" : "15px"} display="flex" flexDirection="column" alignItems="center">
+          {showAlert && (
+              <Alert severity={showAlert.severity} onClose={() => setShowAlert(null)} sx={{ mb: 2, maxWidth: "600px", width: "100%" }}>
+                  <AlertTitle>{showAlert.severity === "success" ? "Éxito" : showAlert.severity === "warning" ? "Advertencia" : "Error"}</AlertTitle>
+                  {showAlert.message}
+              </Alert>
+          )}
+          <Paper sx={{ padding: "30px", backgroundColor: "#fff", borderRadius: "15px", maxWidth: "600px", width: "100%", mb: 3 }} elevation={5}>
+              <Typography textAlign="center" variant="h3" fontFamily="Sora" color="#a78bfa" mb={2}>
+                  ¡Contáctame!
+              </Typography>
+              <Typography textAlign="center" variant="body1" color="#555" mb={3}>
+                  ¿Tienes alguna pregunta o te gustaría discutir un proyecto? ¡No dudes en ponerte en contacto!
+              </Typography>
+
+              <form ref={form} onSubmit={sendEmail}>
+                  <FormGroup>
+                      <FormLabel htmlFor="name">Nombre (mínimo 10 caracteres)</FormLabel>
+                      <Input
+                          type="text"
+                          placeholder="Tu nombre"
+                          name="from_name"
+                          value={name}
+                          onChange={handleNameChange}
+                          onBlur={() => handleBlur("name")}
+                          id="name"
+                          error={!!nameError}
+                          aria-describedby="name-error-text"
+                          sx={{ mb: 2 }}
+                      />
+                      {nameError && <FormHelperText error id="name-error-text">{nameError}</FormHelperText>}
+
+                      <FormLabel htmlFor="email">Email</FormLabel>
+                      <Input
+                          type="email"
+                          placeholder="Tu email"
+                          name="email"
+                          value={email}
+                          onChange={handleEmailChange}
+                          onBlur={() => handleBlur("email")}
+                          id="email"
+                          error={!!emailError}
+                          aria-describedby="email-error-text"
+                          sx={{ mb: 2 }}
+                      />
+                      {emailError && <FormHelperText error id="email-error-text">{emailError}</FormHelperText>}
+
+                      <FormLabel htmlFor="message">Mensaje (mínimo 20 caracteres)</FormLabel>
+                      <TextField
+                          multiline
+                          rows={4}
+                          placeholder="Escribe tu mensaje aquí"
+                          name="message"
+                          value={message}
+                          onChange={handleMessageChange}
+                          onBlur={() => handleBlur("message")}
+                          id="message"
+                          error={!!messageError}
+                          aria-describedby="message-error-text"
+                          sx={{ mb: 3, width: '100%' }}
+                      />
+                      {messageError && <FormHelperText error id="message-error-text">{messageError}</FormHelperText>}
+
+                      <Button
+                          variant="contained"
+                          type="submit"
+                          disabled={!!nameError || !!emailError || !!messageError || !name || !email || !message}
+                          color="primary"
+                          sx={{ mt: 2 }}
+                      >
+                          Enviar Mensaje
+                      </Button>
+                  </FormGroup>
+              </form>
+          </Paper>
+
+          <Paper sx={{ padding: "20px", backgroundColor: "#f8f8f8", borderRadius: "15px", maxWidth: "600px", width: "100%", textAlign: "center" }} elevation={3}>
+              <Typography variant="h6" fontFamily="Sora" color="#555" mb={2}>
+                  ¡También puedes encontrarme en mis redes sociales y por WhatsApp!
+              </Typography>
+              <Box display="flex" justifyContent="center" alignItems="center">
+                  <Tooltip title="Ir a mi Facebook">
+                      <IconButton color="primary" href="https://www.facebook.com/Art.giss" target="_blank" sx={{ mr: 2 }}>
+                          <FacebookIcon sx={{ fontSize: 30 }} />
+                      </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Ir a mi Instagram">
+                      <IconButton color="primary" href="https://www.instagram.com/art.giss.x3/" target="_blank" sx={{ mr: 2 }}>
+                          <InstagramIcon sx={{ fontSize: 30 }} />
+                      </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Ir a mi TikTok">
+                      <IconButton color="primary" href="https://www.tiktok.com/@gissx3" target="_blank" sx={{ mr: 2 }}>
+                          <TikTokIcon sx={{ fontSize: 30 }} />
+                      </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Contáctame por WhatsApp">
+                      <IconButton color="primary" href="https://wa.me/tunumerodetelefono" target="_blank">
+                          <WhatsAppIcon sx={{ fontSize: 30 }} />
+                      </IconButton>
+                  </Tooltip>
+              </Box>
+          </Paper>
       </Box>
-      </Paper>
-      <Paper sx={{margin:"20px", backgroundColor: "rgb(162 216 255 / 50%)"}} elevation={5}>
-      <Typography textAlign={"center"} variant="h2" fontFamily="romantic" paddingTop={"30px"}>
-        Contactame!
-      </Typography>
-      <Box width={"100%"} heigh={"100vh"} display={"flex"} jus className="Home">
-        <Box
-          display={"flex"}
-          flexDirection={"row"}
-          justifyContent={"center"}
-          width={"50%"}
-          marginLeft={"20px"}
-          textAlign={"center"}
-          className="leftSideFromHome"
-        >
-          {/* ICONOS */}
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            justifyContent={"space-evenly"}
-            alignItems={"center"}
-          >
-            <Box>
-              <Tooltip label="Go to my Facebook" aria-label="A tooltip">
-                <a href="https://www.facebook.com/Art.giss">
-                  <img
-                    height={"fit-content"}
-                    width={"20%"}
-                    src={face}
-                    alt="github"
-                  />
-                </a>
-              </Tooltip>
-            </Box>
-            <Box>
-              <Tooltip label="Go to my Instagram" aria-label="A tooltip">
-                <a href="https://www.instagram.com/art.giss.x3/">
-                  <img
-                    height={"fit-content"}
-                    width={"20%"}
-                    src={insta}
-                    alt="linkedin"
-                  />
-                </a>
-              </Tooltip>
-            </Box>
-            <Box>
-              <Tooltip label="Go to my TikTok" aria-label="A tooltip">
-                <a href="https://www.tiktok.com/@gissx3">
-                  <img
-                    height={"fit-content"}
-                    width={"20%"}
-                    src={tik}
-                    alt="cv"
-                  />
-                </a>
-              </Tooltip>
-            </Box>
-          </Box>
-        </Box>
-        {/* FORMULARIO */}
-        <Box
-          width={"50%"}
-          marginTop={"50px"}
-          marginBottom={"50px"}
-          marginRight={"30px"}
-          className="rightSideFromHome"
-        >
-          <Box>
-            <form ref={form} onSubmit={sendEmail}>
-              <FormGroup>
-                <FormLabel>Nombre</FormLabel>
-                <Input
-                  type="text"
-                  placeholder="Name"
-                  name="from_name"
-                  value={inputName}
-                  onChange={handleInputNameChange}
-                />
-                {!isNameError ? (
-                  <FormHelperText>Ingresa tu nombre</FormHelperText>
-                ) : (
-                  <FormHelperText>Nombre es requerido</FormHelperText>
-                )}
-                <FormLabel>Email</FormLabel>
-                <Input
-                  type="email"
-                  placeholder="email"
-                  name="email"
-                  value={input}
-                  onChange={handleInputChange}
-                />
-                {!isEmailError ? (
-                  <FormHelperText>
-                    Ingresa el email donde quieres recibir mi respuesta
-                  </FormHelperText>
-                ) : (
-                  <FormHelperText>Email es requerido</FormHelperText>
-                )}
-                <FormLabel>Mensaje</FormLabel>
-                <TextField
-                  type="text"
-                  height={"20"}
-                  name="message"
-                  placeholder="Message"
-                  value={inputMessage}
-                  onChange={handleInputMessageChange}
-                />
-                {!isMessageError ? (
-                  <FormHelperText>
-                    Escribe un mensaje para contactarme
-                  </FormHelperText>
-                ) : (
-                  <FormHelperText>Mensaje es requerido.</FormHelperText>
-                )}
-                <br></br>
-                {!isEmailError && !isNameError && !isMessageError ? (
-                  <Button variant="contained" type="submit">
-                    Enviar
-                  </Button>
-                ) : null}
-              </FormGroup>
-            </form>
-          </Box>
-        </Box>
-      </Box>
-      </Paper> 
-      </Box>
-      : 
-      <Box className="hommie"  padding="5px">
-      <Paper sx={{margin:"10px", backgroundColor: "rgb(252 228 236 / 50%)"}} elevation={10}>
-      <Box display={"flex"} className="hommie" flexDirection={"column"} alignItems="center" textAlign={"center"} justifyContent={"center"}>
-        <Box>
-        <Typography textAlign={"center"}  paddingTop={"10px"} variant="h5">
-            ¿Necesitas una Ilustración Diseño o logotipo?
-          </Typography>
-          <Typography textAlign={"center"} variant="h5" paddingTop={"10px"}>
-            ¡Trabajemos juntos!
-          </Typography>
-        </Box>
-      </Box>
-      <Box className="hommie" margin={0}>
-      <Typography
-        textAlign={"center"}
-        variant="h3"
-        paddingTop={"10px"}
-        fontFamily="romantic"
-      >
-        Contactame!
-      </Typography>
-      <Box width={"100%"} display={"flex"} flexDirection={"column-reverse"} className="Home">
-        <Box
-          display={"flex"}
-          flexDirection={"column"}
-          justifyContent={"center"}
-          width={"100%"}
-          textAlign={"center"}
-          className="leftSideFromHome"
-        >
-          {/* ICONOS */}
-          <Typography
-        textAlign={"center"}
-        variant="h4"
-        paddingTop={"10px"}
-        fontFamily="romantic"
-      >
-        Sigueme en mis redes sociales!
-      </Typography>
-          <Box
-            display={"flex"}
-            flexDirection={"row"}
-            justifyContent={"space-evenly"}
-            alignItems={"center"}
-          >
-            
-            <Box margin={"10px"}>
-              <Tooltip label="Go to my Facebook" aria-label="A tooltip">
-                <a href="https://www.facebook.com/Art.giss">
-                  <img
-                    height={"fit-content"}
-                    width={"50%"}
-                    src={face}
-                    alt="github"
-                  />
-                </a>
-              </Tooltip>
-              
-            </Box>
-            <Box>
-              <Tooltip label="Go to my Instagram" aria-label="A tooltip">
-                <a href="https://www.instagram.com/art.giss.x3/">
-                  <img
-                    height={"fit-content"}
-                    width={"50%"}
-                    src={insta}
-                    alt="linkedin"
-                  />
-                </a>
-              </Tooltip>
-              
-            </Box>
-            <Box>
-              <Tooltip label="Go to my TikTok" aria-label="A tooltip">
-                <a
-                  href="https://www.tiktok.com/@gissx3"
-                >
-                  <img
-                    height={"fit-content"}
-                    width={"50%"}
-                    src={tik}
-                    alt="cv"
-                  />
-                </a>
-              </Tooltip>
-              
-            </Box>
-          </Box>
-        </Box>
-        {/* FORMULARIO */}
-        <Box>
-          <Box>
-            <form ref={form} onSubmit={sendEmail}>
-              <FormGroup style={{margin:"15px"}} >
-                <FormLabel>Nombre</FormLabel>
-                <Input
-                  type="text"
-                  placeholder="Name"
-                  name="from_name"
-                  value={inputName}
-                  onChange={handleInputNameChange}
-                />
-                {!isNameError ? (
-                  <FormHelperText>Ingresa tu nombre</FormHelperText>
-                ) : (
-                  <FormHelperText>Nombre es requerido</FormHelperText>
-                )}
-                <FormLabel>Email</FormLabel>
-                <Input
-                  type="email"
-                  placeholder="email"
-                  name="email"
-                  value={input}
-                  onChange={handleInputChange}
-                />
-                {!isEmailError ? (
-                  <FormHelperText>
-                    Ingresa el email donde quieres recibir mi respuesta
-                  </FormHelperText>
-                ) : (
-                  <FormHelperText>Email es requerido</FormHelperText>
-                )}
-                <FormLabel>Mensaje</FormLabel>
-                <TextField
-                  type="text"
-                  height={"20"}
-                  name="message"
-                  placeholder="Message"
-                  value={inputMessage}
-                  onChange={handleInputMessageChange}
-                />
-                {!isMessageError ? (
-                  <FormHelperText>
-                    Escribe un mensaje para contactarme
-                  </FormHelperText>
-                ) : (
-                  <FormHelperText>Mensaje es requerido.</FormHelperText>
-                )}
-                <br></br>
-                {!isEmailError && !isNameError && !isMessageError ? (
-                  <Button variant="contained" type="submit">Enviar</Button>
-                ) : null}
-              </FormGroup >
-            </form>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
-    </Paper>
-      </Box>
-      }
-        
-    </Box>
   );
 }

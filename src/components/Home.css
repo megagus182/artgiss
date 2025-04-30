@@ -1,117 +1,92 @@
 .hommie {
-  background: linear-gradient(-45deg, #ffb7fd, #c187ff, #84b5ff, #c0f7ff);
-  background-size: 400% 400%;
-  -webkit-animation: gradient 15s ease infinite;
-  animation: gradient 15s ease infinite;
-}
-
-@-webkit-keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background-color: #f8f8f8; /* Gris muy claro como fondo base */
 }
 
 .nombreGiss {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
+  color: #a78bfa; /* Lavanda suave para el nombre */
 }
 
 .imgPerfil {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  width: -webkit-fill-available;
+  width: 100%; 
+  height: auto; 
 }
 
 .imgPerfilCel {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  height: -webkit-fill-available;
+  width: 100%; 
+  height: auto; 
 }
 
 .wrapper {
   font-family: sans-serif;
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 20px auto;
   position: relative;
 }
+
 .imgHome {
   opacity: 1;
   display: block;
   width: 100%;
   height: auto;
-  transition: 0.5s ease;
+  transition: opacity 0.3s ease; 
+  border-radius: 10px; 
+  border: 1px solid #e0e0e0; 
 }
-.content {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-transform: uppercase;
-  font-size: 40px;
-  color: rgb(0, 8, 150);
-  white-space: nowrap;
-  overflow: hidden;
-}
-.contentCel {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-transform: uppercase;
-  color: rgb(0, 8, 150);
-  overflow: hidden;
-}
-.content a {
-  font-size: 15px;
-  display: block;
-  color: rgb(255, 255, 255);
-  background-color: #9575cd;
-  text-align: center;
-  padding: 4px;
-  cursor: pointer;
-}
+
 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(171, 205, 239, 0.75); 
   opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px; 
 }
-.wrapper:hover img {
-  opacity: 0.3;
-}
+
 .wrapper:hover .overlay {
   opacity: 1;
 }
 
+.content {
+  text-transform: uppercase;
+  font-size: 1.5rem; 
+  color: #64b5f6; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+
+.contentCel {
+  text-transform: uppercase;
+  color: #64b5f6; 
+  overflow: hidden;
+  text-align: center;
+  font-size: 1rem; 
+}
+
+.content a {
+  font-size: 0.8rem;
+  display: block;
+  color: #fff;
+  background-color: #b3e5fc; 
+  text-align: center;
+  padding: 6px 10px; 
+  cursor: pointer;
+  border-radius: 5px; 
+  margin-top: 10px;
+}
+
+/* Estilos de las fuentes */
 @font-face {
   font-family: "romantic";
   src: url("../images/Romantic\ Knight.otf") format("truetype");
@@ -136,4 +111,3 @@
   font-style: normal;
   font-weight: normal;
 }
-
